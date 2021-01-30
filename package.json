@@ -1,0 +1,27 @@
+{
+  "name": "y",
+  "version": "0.0.1",
+  "description": "view doggy pictures",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "serve": "hostr",
+    "start": "hostr",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robmckinnon/that-doggy-in-the-window.git"
+  },
+  "author": "",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/robmckinnon/that-doggy-in-the-window/issues"
+  },
+  "homepage": "https://github.com/robmckinnon/that-doggy-in-the-window#readme",
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "hostr": "^3.0.2",
+    "jest": "^26.6.3"
+  }
+}
