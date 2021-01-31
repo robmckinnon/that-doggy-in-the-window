@@ -9,6 +9,7 @@ export class Viewer extends HTMLElement {
     super();
 
     const img = document.createElement('img');
+    img.setAttribute('class', 'img-responsive-size flip');
     img.src = this.hasAttribute('img') ? this.getAttribute('img') : 'https://images.dog.ceo/breeds/shiba/shiba-10.jpg';
     this.innerHTML = img.outerHTML;
   }

@@ -7,10 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="View doggy pictures">
     <link rel="shortcut icon" href="./favicon.ico"/>
+    <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
     <script type="module" src="./js/app.js"></script>
-    <doggy-viewer id="main" breed="shiba"></doggy-viewer>
+    <div class="no-border-half-width">
+      <doggy-viewer id="main" class="crop-height flip" breed="shiba"></doggy-viewer>
+    </div>
   </body>
 </html>

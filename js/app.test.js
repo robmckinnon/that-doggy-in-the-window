@@ -6,5 +6,6 @@ test('show a picture of a Shiba', async () => {
   `;
   registerViewer();
   const main = document.getElementById('main');
-  expect(main.innerHTML).toBe('<img src="https://images.dog.ceo/breeds/shiba/shiba-10.jpg">');
+  expect(main.innerHTML).toBe('<img class="img-responsive-size flip" ' +
+    'src="https://images.dog.ceo/breeds/shiba/shiba-10.jpg">');
 });
