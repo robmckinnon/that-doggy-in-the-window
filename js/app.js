@@ -1,3 +1,4 @@
+import { registerNextPictureButton } from './next-picture-button.js';
 import { registerViewer } from './viewer.js';
 
 /**
@@ -11,6 +12,7 @@ import { registerViewer } from './viewer.js';
  */
 const app = async () => {
   console.log('there');
+  registerNextPictureButton();
   registerViewer();
 };
 

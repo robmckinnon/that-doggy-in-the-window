@@ -51,3 +51,44 @@ img.flip {
   border: none;
   width: 50%;
 }
+
+button{
+  color:#fff;
+  text-align: center;
+  padding: 20px;
+}
+.button {
+  text-align: center;
+  cursor: pointer;
+  font-size:20px;
+  margin: 0 0 0 0px;
+  border-radius: 4px;
+  background-color:#d35400;
+  border: none;
+  padding: 20px;
+  width: 50%;
+  max-width: 500px;
+  transition: all 0.5s;
+}
+.button span {
+  font-family: 'Roboto Condensed', sans-serif;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover span {
+  padding-right: 25px;
+}
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
