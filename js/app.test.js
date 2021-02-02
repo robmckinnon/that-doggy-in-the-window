@@ -21,7 +21,10 @@ describe('app', () => {
 
   it('changes picture when next picture button clicked', async () => {
     fetch.mockResponseOnce(JSON.stringify({
-      message: 'https://images.dog.ceo/breeds/shiba/shiba-22.jpg',
+      message: [
+        'https://images.dog.ceo/breeds/shiba/shiba-22.jpg',
+        'https://images.dog.ceo/breeds/shiba/shiba-23.jpg'
+      ],
       status: 'success'
     }));
     window.document.body.innerHTML = `
@@ -33,6 +36,6 @@ describe('app', () => {
     flushPromises();
 
     expect(fetch.mock.calls.length).toEqual(1);
-    expect(fetch.mock.calls[0][0]).toEqual('https://dog.ceo/api/breed/shiba/images/random');
+    expect(fetch.mock.calls[0][0]).toEqual('https://dog.ceo/api/breed/shiba/images');
   });
 });

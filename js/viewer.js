@@ -1,6 +1,6 @@
 // @ts-check
 import EventBus from './event-bus.js';
-import { randomPicture } from './fetcher.js';
+import { listByBreed } from './fetcher.js';
 
 /**
  * The component that handles rendering the main picture
@@ -10,15 +10,18 @@ export class Viewer extends HTMLElement {
   constructor() {
     super();
 
+    this._index = 0;
     this._img = document.createElement('img');
     this._img.setAttribute('class', 'img-responsive-size flip');
     this._img.src = this.hasAttribute('img') ? this.getAttribute('img') : 'https://images.dog.ceo/breeds/shiba/shiba-10.jpg';
     this.appendChild(this._img);
 
-    this._nextPicture = async (e) => {
-      const url = await randomPicture('shiba');
-      if (url != null) {
-        this._img.setAttribute('src', url);
+    this._nextPicture = async () => {
+      const urls = await listByBreed('shiba');
+
+      if (urls != null) {
+        this._img.setAttribute('src', urls[this._index % urls.length]);
+        this._index = this._index + 1;
       }
     };
   }
