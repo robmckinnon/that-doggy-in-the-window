@@ -1,4 +1,5 @@
 import { registerNextPictureButton } from './next-picture-button.js';
+import { registerPreviousDisplayedDoggies } from './previous-displayed-doggies.js';
 import { registerViewer } from './viewer.js';
 
 /**
@@ -11,8 +12,8 @@ import { registerViewer } from './viewer.js';
  * Opera and Safari so far support only autonomous custom elements.
  */
 export const initApp = async () => {
-  console.log('there');
   registerNextPictureButton();
+  registerPreviousDisplayedDoggies();
   registerViewer();
 };
 

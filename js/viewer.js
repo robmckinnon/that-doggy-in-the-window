@@ -20,6 +20,7 @@ export class Viewer extends HTMLElement {
       const urls = await listByBreed('shiba');
 
       if (urls != null) {
+        EventBus.fire('previous-picture', this._img.getAttribute('src'));
         this._img.setAttribute('src', urls[this._index % urls.length]);
         this._index = this._index + 1;
       }

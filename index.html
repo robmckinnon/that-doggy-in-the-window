@@ -14,8 +14,11 @@
     <script type="module" src="./js/app.js"></script>
     <h1>that doggy in the window</h1>
     <div class="no-border-half-width">
-      <doggy-viewer id="main" class="crop-height flip" breed="shiba"/>
+      <doggy-viewer id="main" class="crop-height-500 flip" breed="shiba"/>
     </div>
-    <next-picture-button/>
+    <next-picture-button></next-picture-button>
+    <div>
+      <previous-displayed-doggies id="previous" class="grid-container" breed="shiba"></previous-displayed-doggies>
+    </div>
   </body>
 </html>

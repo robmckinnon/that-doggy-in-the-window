@@ -26,10 +26,29 @@ body {
   width: 100%;
   height: auto;
 }
-.crop-height {
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+.grid-container {
+  width: 50%;
+  display: grid;
+  justify-content: start;
+  grid-template-columns: auto auto auto auto auto;
+  padding: 5px;
+}
+.crop-height-500 {
   max-height: 500px;
   overflow: hidden;
   display: flex;
+  align-items: center; /* vertical */
+  justify-content: center; /* horizontal */
+}
+.crop-height-150 {
+  max-height: 150px;
+  overflow: hidden;
+  /* display: flex; */
   align-items: center; /* vertical */
   justify-content: center; /* horizontal */
 }
