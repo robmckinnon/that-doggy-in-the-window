@@ -50,6 +50,7 @@ img.flip {
 .no-border-half-width {
   border: none;
   width: 50%;
+  min-height: 530px;
 }
 
 button{

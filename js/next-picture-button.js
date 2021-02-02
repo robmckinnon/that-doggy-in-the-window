@@ -1,4 +1,5 @@
 // @ts-check
+import EventBus from './event-bus.js';
 
 /**
  * The component that handles next picture requests
@@ -16,10 +17,10 @@ export class NextPictureButton extends HTMLElement {
     const span = document.createElement('span');
     span.textContent = 'Show next picture';
     button.appendChild(span);
+
+    button.addEventListener('click', () => EventBus.fire('next-picture'));
     this.appendChild(button);
   }
-
-
 }
 
 /**
