@@ -27,9 +27,11 @@ body {
   height: auto;
 }
 .crop-height {
-  display: inline-block;
   max-height: 500px;
   overflow: hidden;
+  display: flex;
+  align-items: center; /* vertical */
+  justify-content: center; /* horizontal */
 }
 .flip {
   -webkit-transform: rotate(180deg);
@@ -50,7 +52,7 @@ img.flip {
 .no-border-half-width {
   border: none;
   width: 50%;
-  min-height: 530px;
+  min-height: 540px;
 }
 
 button{
