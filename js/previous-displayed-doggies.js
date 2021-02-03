@@ -8,13 +8,22 @@ import EventBus from './event-bus.js';
 export class PreviousDisplayedDoggies extends HTMLElement {
   constructor() {
     super();
-    // <div class="crop-height flip">
-    //
-    // </div>
-    this.appendChild(document.createElement('div'));
-    this.appendChild(document.createElement('div'));
-    this.appendChild(document.createElement('div'));
-    this.appendChild(document.createElement('div'));
+    const header = document.createElement('h2');
+    header.textContent = 'previous pictures';
+    header.setAttribute('style', 'display: none;');
+    this.appendChild(header);
+
+    const grid = document.createElement('div');
+    grid.className = 'grid-container';
+    let spaceholder;
+    for (let i = 0; i < 5; i++) {
+      spaceholder = document.createElement('div');
+      spaceholder.setAttribute('class', 'crop-height-150 flip');
+      spaceholder.innerHTML = '<img class="img-responsive-size flip" src="./thumbnail-space.png">';
+      grid.appendChild(spaceholder);
+    }
+    this.appendChild(grid);
+
     this._urls = new Set();
     this._addPreviousPicture = async (e) => {
       const url = e.detail;
@@ -23,10 +32,13 @@ export class PreviousDisplayedDoggies extends HTMLElement {
       const div = document.createElement('div');
       div.setAttribute('class', 'crop-height-150 flip');
       div.innerHTML = `<img class="img-responsive-size flip" src="${url}">`;
-      if (this.childNodes.length == 0) {
-        this.appendChild(div);
+
+      console.log(grid.childNodes.length);
+      if (grid.childNodes.length == 5) {
+        header.setAttribute('style', 'display: block');
+        grid.insertBefore(div, grid.childNodes[0]);
       } else {
-        this.insertBefore(div, this.childNodes[0]);
+        grid.insertBefore(div, grid.childNodes[0]);
       }
     };
   }
@@ -47,6 +59,6 @@ export class PreviousDisplayedDoggies extends HTMLElement {
 }
 
 /**
- * Register the custom viewer component
+ * Register the custom component
  */
 export const registerPreviousDisplayedDoggies = () => customElements.define('previous-displayed-doggies', PreviousDisplayedDoggies);

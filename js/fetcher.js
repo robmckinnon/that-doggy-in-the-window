@@ -16,6 +16,13 @@ const apiFetch = async (url) => {
 };
 
 /**
+ * Return all breeds and their subbreeds
+ * @returns {object} breed keys with arrays of sub-breeds as values
+ */
+export const listAllBreeds = async () =>
+  apiFetch('https://dog.ceo/api/breeds/list/all');
+
+/**
  * Return URL of random picture of given breed
  * @param {string} breed
  * @returns {string} image URL or null

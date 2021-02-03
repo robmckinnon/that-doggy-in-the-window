@@ -18,9 +18,8 @@ describe('eventBus', () => {
   });
 
   it('fires event with detail to registered listener', async () => {
-    eventBus.fire('test', {detail: 'value'});
+    eventBus.fire('test', 'value');
     expect(result).not.toBe(null);
     expect(result.isTrusted).toBe(false);
-    // expect(result).toBe(false);
   });
 });

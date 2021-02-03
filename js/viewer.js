@@ -13,14 +13,24 @@ export class Viewer extends HTMLElement {
     this._index = 0;
     this._img = document.createElement('img');
     this._img.setAttribute('class', 'img-responsive-size flip');
-    this._img.src = this.hasAttribute('img') ? this.getAttribute('img') : 'https://images.dog.ceo/breeds/shiba/shiba-10.jpg';
     this.appendChild(this._img);
+    this._breed = 'shiba';
+
+    this._changeBreed = (e) => {
+      this._breed = e.detail;
+      this._nextPicture();
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    };
 
     this._nextPicture = async () => {
-      const urls = await listByBreed('shiba');
+      const urls = await listByBreed(this._breed);
 
       if (urls != null) {
-        EventBus.fire('previous-picture', this._img.getAttribute('src'));
+        const previous = this._img.getAttribute('src');
+        if (previous) {
+          EventBus.fire('previous-picture', this._img.getAttribute('src'));
+        }
         this._img.setAttribute('src', urls[this._index % urls.length]);
         this._index = this._index + 1;
       }
@@ -32,6 +42,8 @@ export class Viewer extends HTMLElement {
    */
   async connectedCallback() {
     EventBus.register('next-picture', this._nextPicture);
+    EventBus.register('select-breed', this._changeBreed);
+    this._nextPicture();
   }
 
   /**
@@ -39,6 +51,7 @@ export class Viewer extends HTMLElement {
    */
   async disconnectedCallback() {
     EventBus.remove('next-picture', this._nextPicture);
+    EventBus.remove('select-breed', this._changeBreed);
   }
 }
 
